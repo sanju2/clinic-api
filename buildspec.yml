@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+  build:
+    commands:
+      - echo "Zipping deployment package...".
+      - zip -r build.zip index.js
+  post_build:
+    commands:
+      - echo "Updating lambda Function..."
+      - aws --version
+      - aws configure set region us-east-2
+      - aws lambda update-function-code --function-name clinic-api-user --zip-file fileb://build.zip
+      - echo "DONE!!"

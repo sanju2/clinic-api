@@ -17,7 +17,7 @@ exports.handler = async function (event) {
       response = buildResponse(200);
       const body = {
         Message: "Health Success",
-     };
+      };
       break;
     case event.httpMethod === "GET" && event.path === adminPath:
       response = await getAdmin(event.queryStringParameters.aid);
@@ -35,56 +35,57 @@ exports.handler = async function (event) {
         requestBody.updateKey,
         requestBody.updateValue
       );
-    break;
-   case event.httpMethod === "DELETE" && event.path === adminPath:
+      break;
+    case event.httpMethod === "DELETE" && event.path === adminPath:
       response = await deleteAdmin(JSON.parse(event.body).aid);
       break;
-default:
-    response = buildResponse(404, "404 Not Found");
-}
-return response;
+    default:
+      response = buildResponse(404, "404 Not Found");
+  }
+  return response;
 };
+
 //Specific Admin GET
 async function getAdmin(aid) {
   const params = {
-      TableName: dynamoDBTableName,
-      Key: {
-        aid: aid,
-      },
+    TableName: dynamoDBTableName,
+    Key: {
+      aid: aid,
+    },
   };
   return await dynamoDB
-      .get(params)
-      .promise()
-      .then((response) => {
-         return buildResponse(200, response.Item);
-      },
-   (err) => console.log("ERROR: ", err)
-);
+    .get(params)
+    .promise()
+    .then((response) => {
+      return buildResponse(200, response.Item);
+    },
+      (err) => console.log("ERROR: ", err)
+    );
 }
 
 // All admins GET
 async function getAdmins() {
   const params = { TableName: dynamoDBTableName };
-const allAdmins = await scanDynamoRecords(params, []);
-const body = {
-admins: allAdmins,
-};
-return buildResponse(200, body);
+  const allAdmins = await scanDynamoRecords(params, []);
+  const body = {
+    admins: allAdmins,
+  };
+  return buildResponse(200, body);
 }
 async function scanDynamoRecords(scanParams, itemArray) {
   try {
     // Read Dynamo DB data, pushing into array
     const dynamoData = await dynamoDB.scan(scanParams).promise();
     itemArray = itemArray.concat(dynamoData.Items);
-    
+
     if (dynamoData.LastEvaluatedKey) {
       scanParams.ExclusiveStartkey = dynamoData.LastEvaluatedKey;
       return await scanDynamoRecords(scanParams, itemArray);
     }
-  return itemArray;
-} catch (err) {
+    return itemArray;
+  } catch (err) {
     console.log("ERROR in Scan Dynamo Records: ", err);
-}
+  }
 }
 // Product ADD POST 
 async function saveAdmin(requestBody) {
@@ -96,16 +97,16 @@ async function saveAdmin(requestBody) {
     .put(params)
     .promise()
     .then(() => {
-       const body = {
-           Operation: "SAVE",
-           Message: "SUCCESS",
-           Item: requestBody,
-        };
-       return buildResponse(200, body);
-     },(err) => {
+      const body = {
+        Operation: "SAVE",
+        Message: "SUCCESS",
+        Item: requestBody,
+      };
+      return buildResponse(200, body);
+    }, (err) => {
       console.log("ERROR in Save Product: ", err);
-     }
-  );
+    }
+    );
 }
 async function modifyAdmin(aid, updateKey, updateValue) {
   const params = {
@@ -118,54 +119,54 @@ async function modifyAdmin(aid, updateKey, updateValue) {
       ":value": updateValue,
     },
     ReturnValues: "UPDATED_NEW",
- };
-return await dynamoDB
-  .update(params)
-  .promise()
-  .then(
-    (response) => {
-      const body = {
-         Operation: "UPDATE",
-         Message: "SUCCESS",
-         UpdatedAttributes: response,
-      };
-     return buildResponse(200, body);
-  }, (err) => {
-     console.log("ERROR in Update Product: ", err);
-  }
- );
+  };
+  return await dynamoDB
+    .update(params)
+    .promise()
+    .then(
+      (response) => {
+        const body = {
+          Operation: "UPDATE",
+          Message: "SUCCESS",
+          UpdatedAttributes: response,
+        };
+        return buildResponse(200, body);
+      }, (err) => {
+        console.log("ERROR in Update Product: ", err);
+      }
+    );
 }
 // Delete a Product
-async function deleteProduct(aid) {
+async function deleteAdmin(aid) {
   const params = {
     TableName: dynamoDBTableName,
-      Key: {
-        aid: aid,
-      },
-      ReturnValues: "ALL_OLD",
-   };
+    Key: {
+      aid: aid,
+    },
+    ReturnValues: "ALL_OLD",
+  };
   return await dynamoDB
-        .delete(params)
-        .promise()
-        .then((response) => {
-          const body = {
-             Operation: "DELETE",
-             Message: "SUCCESS",
-             Item: response,
-          };
-        return buildResponse(200, body);
-   },
-  (err) => {
-     console.log("ERROR in Delete Product: ", err);
-   }
- );
- }
+    .delete(params)
+    .promise()
+    .then((response) => {
+      const body = {
+        Operation: "DELETE",
+        Message: "SUCCESS",
+        Item: response,
+      };
+      return buildResponse(200, body);
+    },
+      (err) => {
+        console.log("ERROR in Delete Product: ", err);
+      }
+    );
+}
 // For specific response structure
 function buildResponse(statusCode, body) {
   return {
     statusCode,
     headers: {
-       "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
   };

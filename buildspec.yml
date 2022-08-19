@@ -6,11 +6,14 @@ phases:
   build:
     commands:
       - echo "Zipping deployment package...".
-      - zip -r build.zip user.js
+      - zip -r build.zip user.js admin.js doctor.js appointment.js
   post_build:
     commands:
       - echo "Updating lambda Function..."
       - aws --version
       - aws configure set region us-east-2
       - aws lambda update-function-code --function-name clinic-api-user --zip-file fileb://build.zip
+      - aws lambda update-function-code --function-name clinic-api-admin --zip-file fileb://build.zip
+      - aws lambda update-function-code --function-name clinic-api-doctor --zip-file fileb://build.zip
+      - aws lambda update-function-code --function-name clinic-api-appointment --zip-file fileb://build.zip
       - echo "DONE!!"

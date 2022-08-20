@@ -15,9 +15,6 @@ exports.handler = async function (event) {
   switch (true) {
     case event.httpMethod === "GET" && event.path === healthPath:
       response = buildResponse(200);
-      const body = {
-        Message: "Health Success",
-      };
       break;
     case event.httpMethod === "GET" && event.path === userPath:
       response = await getUser(event.queryStringParameters.uid);

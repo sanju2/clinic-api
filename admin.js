@@ -15,7 +15,6 @@ exports.handler = async function (event) {
   switch (true) {
     case event.httpMethod === "GET" && event.path === healthPath:
       response = buildResponse(200);
-      return response;
       break;
     case event.httpMethod === "GET" && event.path === adminPath:
       response = await getAdmin(event.queryStringParameters.aid);

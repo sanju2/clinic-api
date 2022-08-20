@@ -64,7 +64,7 @@ async function getAppointment(apid) {
 }
 
 // All Appointments GET
-async function getAppointment() {
+async function getAppointments() {
   const params = { TableName: dynamoDBTableName };
   const allappointments = await scanDynamoRecords(params, []);
   const body = {

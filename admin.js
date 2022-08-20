@@ -87,7 +87,7 @@ async function scanDynamoRecords(scanParams, itemArray) {
     console.log("ERROR in Scan Dynamo Records: ", err);
   }
 }
-// Product ADD POST 
+// Admin ADD POST 
 async function saveAdmin(requestBody) {
   const params = {
     TableName: dynamoDBTableName,
@@ -136,7 +136,7 @@ async function modifyAdmin(aid, updateKey, updateValue) {
       }
     );
 }
-// Delete a Product
+// Delete a Admin
 async function deleteAdmin(aid) {
   const params = {
     TableName: dynamoDBTableName,

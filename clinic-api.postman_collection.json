@@ -1,0 +1,1175 @@
+{
+	"info": {
+		"_postman_id": "2ed6aaa9-03b4-42bf-b159-7a1b79e5c54a",
+		"name": "clinic-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10124724"
+	},
+	"item": [
+		{
+			"name": "admins",
+			"item": [
+				{
+					"name": "api-health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "ahealth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-admins",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "admins"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-specific-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path?aid=2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "2"
+								}
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"aid\": \"3\",\r\n  \"name\": \"silva\",\r\n  \"mobile\": \"775094902\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"aid\": \"1\",\r\n\"updateKey\": \"email\",\r\n\"updateValue\": \"sanjeewa@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"aid\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "api-health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "uhealth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "users"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-specific-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path?uid=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uid\": \"3\",\r\n  \"name\": \"lasantha\",\r\n  \"mobile\": \"775094902\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"uid\": \"1\",\r\n\"updateKey\": \"email\",\r\n\"updateValue\": \"lsanjeewa@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"uid\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctors",
+			"item": [
+				{
+					"name": "api-health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "dhealth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "doctors"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-specific-doctor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path?did=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"query": [
+								{
+									"key": "did",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "doctor"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-doctor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"did\": \"4\",\r\n  \"name\": \"perera\",\r\n  \"mobile\": \"775094902\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "doctor"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-doctor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"did\": \"1\",\r\n\"updateKey\": \"email\",\r\n\"updateValue\": \"lsanjeewa@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "doctor"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-doctor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"did\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "doctor"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "appointments",
+			"item": [
+				{
+					"name": "api-health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "aphealth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "appointments"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-specific-appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/:path?apid=001",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"query": [
+								{
+									"key": "apid",
+									"value": "001"
+								}
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "appointment"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"apid\": \"003\",\r\n  \"person_name\": \"silva\",\r\n  \"mobile\": \"775094902\",\r\n  \"date\": \"2022-08-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "appointment"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"apid\": \"001\",\r\n\"updateKey\": \"person_name\",\r\n\"updateValue\": \"thilanga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "appointment"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"apid\": \"003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/:path",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":path"
+							],
+							"variable": [
+								{
+									"key": "path",
+									"value": "appointment"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://dv5rqng9s0.execute-api.us-east-2.amazonaws.com/Development"
+		}
+	]
+}

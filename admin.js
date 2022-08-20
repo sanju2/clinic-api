@@ -14,8 +14,7 @@ exports.handler = async function (event) {
   let response;
   switch (true) {
     case event.httpMethod === "GET" && event.path === healthPath:
-      response = buildResponse(200);
-      return "Healthy API";
+      response = await getHealth();
       break;
     case event.httpMethod === "GET" && event.path === adminPath:
       response = await getAdmin(event.queryStringParameters.aid);
@@ -42,6 +41,22 @@ exports.handler = async function (event) {
   }
   return response;
 };
+
+// Health Return
+async function getHealth() {
+  return await dynamoDB
+    .then(() => {
+      const body = {
+        Message: "Healthy API",
+        Item: requestBody,
+      };
+      return buildResponse(200, body);
+    }, (err) => {
+      console.log("ERROR in Save Product: ", err);
+    }
+    );
+
+}
 
 //Specific Admin GET
 async function getAdmin(aid) {

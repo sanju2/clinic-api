@@ -44,18 +44,7 @@ exports.handler = async function (event) {
 
 // Health Return
 async function getHealth() {
-  return await dynamoDB
-    .then(() => {
-      const body = {
-        Message: "Healthy API",
-        Item: requestBody,
-      };
-      return buildResponse(200, body);
-    }, (err) => {
-      console.log("ERROR in Save Product: ", err);
-    }
-    );
-
+  return "Healthy API";
 }
 
 //Specific Admin GET

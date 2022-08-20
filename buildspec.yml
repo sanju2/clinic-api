@@ -2,10 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies..."
+      - echo "Installing..."
   build:
     commands:
-      - echo "Zipping deployment package...".
+      - echo "Zip for Lambda...".
       - zip -r build.zip user.js admin.js doctor.js appointment.js
   post_build:
     commands:
@@ -16,4 +16,4 @@ phases:
       - aws lambda update-function-code --function-name clinic-api-admin --zip-file fileb://build.zip
       - aws lambda update-function-code --function-name clinic-api-doctor --zip-file fileb://build.zip
       - aws lambda update-function-code --function-name clinic-api-appointment --zip-file fileb://build.zip
-      - echo "DONE!!"
+      - echo "DONE...!!"

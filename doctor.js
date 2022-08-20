@@ -74,7 +74,7 @@ async function getDoctors() {
 }
 async function scanDynamoRecords(scanParams, itemArray) {
   try {
-    // Read Dynamo DB data, pushing into array
+
     const dynamoData = await dynamoDB.scan(scanParams).promise();
     itemArray = itemArray.concat(dynamoData.Items);
 
@@ -161,7 +161,7 @@ async function deleteDoctor(did) {
       }
     );
 }
-// For specific response structure
+
 function buildResponse(statusCode, body) {
   return {
     statusCode,

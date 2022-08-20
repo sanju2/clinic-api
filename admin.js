@@ -74,7 +74,6 @@ async function getAdmins() {
 }
 async function scanDynamoRecords(scanParams, itemArray) {
   try {
-    // Read Dynamo DB data, pushing into array
     const dynamoData = await dynamoDB.scan(scanParams).promise();
     itemArray = itemArray.concat(dynamoData.Items);
 
@@ -161,7 +160,7 @@ async function deleteAdmin(aid) {
       }
     );
 }
-// For specific response structure
+
 function buildResponse(statusCode, body) {
   return {
     statusCode,

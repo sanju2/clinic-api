@@ -1,16 +1,18 @@
 # Clinic REST-API
-Using
+Use following things
 
 - Node.js
 - AWS Lambda
 - AWS API Gateway
+- AWS APIGateway API Key (For Restrict API Access)
 - AWS DynamoDB
 - AWS CodePipeline
 - AWS CodeBuild
-- AWS IAM
-- Github
+- AWS IAM Roles & Policy
+- Github Repository
 
-See [Postman Collection](https://www.pantsbuild.org/docs) for Invoke API
+See [Postman Collection](https://www.getpostman.com/collections/7e39f4cd409ca8296420) you can Import Collection via link for Invoke APIs.
+Colection Link - https://www.getpostman.com/collections/7e39f4cd409ca8296420
 
 Architectural Diagram
 
@@ -29,17 +31,17 @@ Add following permisson to IAM Role
 # Create API Gateway
 
 Create AWS API GAteway and add following routes
-![API Gateway](#)
+![API Gateway](resources/api-gateway.jpg)
 
 # Create DynamoDB Tables
+
+![DynamoDB Tables](resources/dynamo-db.jpg)
 
 Create 4 dynamodb tables for
 - user
 - admin
 - doctor
 - appointments
-
-![DynamoDB Tables](#)
 
 ## Create AWS CodeBuild Build Project
 
@@ -81,15 +83,23 @@ Create AWS CodePipeline for CICD process
 
 We can create 4 stages for Dev, QA, UAT, Prod
 
-![API Gateway](#)
+![API Gateway](resources/apigateway-stage.jpg)
 
 # Check API using Postman or Curl
 
-![Postman](#)
+![Postman](resources/postman1.jpg)
+
+Response
+![Postman](resources/postman2.jpg)
+
+Test Result
+![Postman](resources/postman3.jpg)
 
 curl {{Invoke-URL}}
-![Curl](#)
+Ex: curl https://dv5rqng9s0.execute-api.us-east-2.amazonaws.com/Development/admins
 
-You can add Postman collection [Postman Collection](https://www.pantsbuild.org/docs)
+You can add Postman collection [Postman Collection](https://www.getpostman.com/collections/7e39f4cd409ca8296420)
+
+Add API key : x-api-key(Q2gZ5ArllY8bWlqSzA0eS6JmxMibVYUU8kgca1RU)
 
 Thank You!

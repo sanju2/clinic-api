@@ -13,9 +13,9 @@
       "lambda:PublishVersion"
   ],
   "Resource": [
-    "arn:aws:lambda:us-east-2:accountno:function:clinic-api-user",
-    "arn:aws:lambda:us-east-2:accountno:function:clinic-api-admin",
-    "arn:aws:lambda:us-east-2:accountno:function:clinic-api-doctor",
-    "arn:aws:lambda:us-east-2:accountno:function:clinic-api-appointment"
+    "arn:aws:lambda:us-east-2:{{accountno}}:function:{{user-lambda-function-name}}",
+    "arn:aws:lambda:us-east-2:{{accountno}}:function:{{admin-lambda-function-name}}",
+    "arn:aws:lambda:us-east-2:{{accountno}}:function:{{doctor-lambda-function-name}}",
+    "arn:aws:lambda:us-east-2:{{accountno}}:function:{{appointment-lambda-function-name}}"
 ]
 }

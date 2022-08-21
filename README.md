@@ -4,7 +4,7 @@ Use following things
 - Node.js
 - AWS Lambda
 - AWS API Gateway
-- AWS APIGateway API Key (For Restrict API Access)
+- AWS APIGateway API Key (For Restrict API Access, also can use Cognito)
 - AWS DynamoDB
 - AWS CodePipeline
 - AWS CodeBuild

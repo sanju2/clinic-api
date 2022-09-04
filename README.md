@@ -14,7 +14,7 @@ Use following things
 See [Postman Collection](https://www.getpostman.com/collections/7e39f4cd409ca8296420) you can Import Collection via link for Invoke APIs.
 Colection Link - https://www.getpostman.com/collections/7e39f4cd409ca8296420
 
-API Documentation - https://documenter.getpostman.com/view/10124724/VUqpswvQ
+<!-- API Documentation - https://documenter.getpostman.com/view/10124724/VUqpswvQ -->
 
 Architectural Diagram
 
